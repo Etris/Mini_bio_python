@@ -11,5 +11,5 @@ Module is now kind of useless with small amount of functions - but - regulary I'
 * Hamming distance
 
 ### Upcoming features:
-[ ] Finding motif in DNA
-[ ] Interferring mRNA from Protein
+* Finding motif in DNA
+* Interferring mRNA from Protein
