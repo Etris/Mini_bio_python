@@ -96,3 +96,25 @@ def calc_mass(seq):
     for el in seq:
         temp += MASS[el]
     return round(temp, 3)
+
+start = ['AUG', 'ATG']
+end = ['UAG', 'UGA', 'UAA', 'TAG', 'TGA', 'TAA']
+def translateFrame(seq):
+    poss = list()
+    seq2 = reverse_complement(seq)
+    for i in range(0, len(seq2), 1):
+        if str(seq2[int(i): int(i+3)]) in start:
+           for x in range(int(i), len(seq2), 3):
+                if str(seq2[int(x): int(x+3)]) in end:
+                    tnd = translate(seq2[i:x])
+                    if tnd != "" and tnd not in poss: poss.append(tnd)
+                    break
+    for i in range(0, len(seq), 1):
+        if str(seq[int(i): int(i+3)]) in start:
+           for x in range(int(i), len(seq), 3):
+                if str(seq[int(x): int(x+3)]) in end:
+                    tnd = translate(seq[i:x])
+                    if tnd != "" and tnd not in poss: poss.append(tnd)
+                    break
+
+    return poss
